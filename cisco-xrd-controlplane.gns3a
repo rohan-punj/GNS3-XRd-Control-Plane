@@ -1,0 +1,26 @@
+{
+    "appliance_id": "372b422c-1124-4449-94da-8b17c77719ac",
+    "name": "Cisco XRd Control Plane",
+    "category": "router",
+    "description": "Cisco IOS XR running as a Docker container (XRd Control Plane variant).\n\nXRd Control Plane is designed for routing protocol labs, automation (NETCONF/YANG/gRPC) and CI/CD pipelines. It runs the full IOS XR control plane with Linux-kernel data plane — ideal for GNS3 topologies that focus on BGP/OSPF/IS-IS/MPLS/SR and not raw forwarding performance.\n\nThis appliance expects that you have already loaded the official Cisco XRd image on your GNS3 VM and built the custom 'xrd-cp-gns3:latest' image using the included Dockerfile (bakes a first-boot config with admin/cisco).\n\nDefault login: admin / cisco\nEnter XR CLI from the Linux prompt with: /pkg/bin/xr_cli.sh",
+    "vendor_name": "Cisco",
+    "vendor_url": "https://www.cisco.com/",
+    "documentation_url": "https://xrdocs.io/virtual-routing/",
+    "product_name": "XRd Control Plane",
+    "product_url": "https://www.cisco.com/c/en/us/products/collateral/routers/ios-xrd/datasheet-c78-744298.html",
+    "registry_version": 6,
+    "status": "experimental",
+    "maintainer": "Lab User",
+    "maintainer_email": "lab@example.com",
+    "usage": "Before importing this appliance:\n\n1. Load the official Cisco XRd image on the GNS3 VM:\n     docker load -i xrd-control-plane-<version>.tar.gz\n\n2. Build the custom GNS3 image using the included Dockerfile:\n     docker build --build-arg BASE_IMAGE=ios-xr/xrd-control-plane:<version> -t xrd-cp-gns3:latest .\n\nThen import this .gns3a file into GNS3.\n\nDefaults:\n  - 4 adapters (eth0 = mgmt, eth1-3 = Gi0/0/0/0..2)\n  - 4 GB RAM, 1 CPU\n  - Login: admin / cisco\n\nTo scale interface count, edit the template and regenerate XR_INTERFACES with gns3-xrd-env.sh.\n\nNote: XRd requires the GNS3 VM (Linux kernel). Will not run on native Windows/macOS Docker.",
+    "symbol": ":/symbols/affinity/square/blue/router.svg",
+    "first_port_name": "Mg0/RP0/CPU0/0",
+    "port_name_format": "Gi0/0/0/{port0}",
+    "docker": {
+        "adapters": 20,
+        "image": "xrd-cp-gns3:latest",
+        "console_type": "telnet",
+        "start_command": "",
+        "environment": "XR_FIRST_BOOT_CONFIG=/firstboot.cfg\nXR_MGMT_INTERFACES=linux:eth0,xr_name=MgmtEth0/RP0/CPU0/0,chksum,snoop_v4,snoop_v6\nXR_INTERFACES=linux:eth1,xr_name=Gi0/0/0/0;linux:eth2,xr_name=Gi0/0/0/1;linux:eth3,xr_name=Gi0/0/0/2;linux:eth4,xr_name=Gi0/0/0/3;linux:eth5,xr_name=Gi0/0/0/4;linux:eth6,xr_name=Gi0/0/0/5;linux:eth7,xr_name=Gi0/0/0/6;linux:eth8,xr_name=Gi0/0/0/7;linux:eth9,xr_name=Gi0/0/0/8;linux:eth10,xr_name=Gi0/0/0/9;linux:eth11,xr_name=Gi0/0/0/10;linux:eth12,xr_name=Gi0/0/0/11;linux:eth13,xr_name=Gi0/0/0/12;linux:eth14,xr_name=Gi0/0/0/13;linux:eth15,xr_name=Gi0/0/0/14;linux:eth16,xr_name=Gi0/0/0/15;linux:eth17,xr_name=Gi0/0/0/16;linux:eth18,xr_name=Gi0/0/0/17;linux:eth19,xr_name=Gi0/0/0/18"
+    }
+}
