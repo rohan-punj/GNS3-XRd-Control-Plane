@@ -1,9 +1,6 @@
 # Cisco XRd Control Plane for GNS3
 
 A complete GNS3-ready package for running Cisco IOS XR as a Docker container.
-Adapted from an EVE-NG integration (`xrd.yml`, `prep_xrd.sh`, `init_xrd.sh`)
-into a working set of GNS3 appliance files, helper scripts, and a GNS3-VM
-preparation patcher.
 
 Tested on GNS3 3.0.5.
 
