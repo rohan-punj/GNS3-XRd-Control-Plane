@@ -31,6 +31,6 @@ COPY firstboot.cfg /firstboot.cfg
 # Metadata
 LABEL maintainer="GNS3 XRd Lab" \
       description="Cisco XRd Control Plane pre-loaded with GNS3 first-boot config" \
-      source="Adapted from EVE-NG xrd.yml / prep_xrd.sh / init_xrd.sh"
+      source="Adapted from XRd docs"
 
 # Do NOT override CMD/ENTRYPOINT — XRd's default launcher must run.
