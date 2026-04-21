@@ -1,3 +1,4 @@
+<img width="1381" height="776" alt="GNS3 0 5 XRd" src="https://github.com/user-attachments/assets/d049343c-fe15-46e9-bf45-a2abacd48fdc" />
 # Cisco XRd Control Plane for GNS3
 
 A complete GNS3-ready package for running Cisco IOS XR as a Docker container.
