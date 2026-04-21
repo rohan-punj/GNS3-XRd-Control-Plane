@@ -54,6 +54,12 @@ scp xrd-control-plane-<version>.tar.gz gns3@<GNS3_VM_IP>:~
 scp -r xrd-gns3-package gns3@<GNS3_VM_IP>:~
 ```
 
+Or, login to GNS3 server CLI and pull from dockerhub:
+
+```bash
+docker pull sbezverk/xrd-control-plane:25.2.1
+```
+
 ### Step 2 — Load the image into Docker
 
 On the GNS3 VM:
@@ -69,7 +75,7 @@ docker images | grep xrd
 ```bash
 cd ~/xrd-gns3-package/docker-image
 ./build-image.sh ios-xr/xrd-control-plane:24.4.1
-# Produces image: xrd-cp-gns3:latest (used by the default .gns3a)
+# Change the name and tag accordingly. Produces image: xrd-cp-gns3:latest (used by the default .gns3a)
 ```
 
 Edit `firstboot.cfg` first if you want different credentials or any day-0
